@@ -1,15 +1,23 @@
 export const NAV_LINKS = [
   {
-    code: 'discover',
-    href: '/explore',
+    code: 'aitools',
+    href: '/discover',
   },
   {
     code: 'submit',
     href: '/submit',
   },
   {
-    code: 'startup',
-    href: '/startup',
+    code: 'usergrowth',
+    href: '/user-growth',
+  },
+  {
+    code: 'articles',
+    href: '/articles',
+  },
+  {
+    code: 'pricing',
+    href: '/pricing',
   },
 ];
 

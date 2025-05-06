@@ -23,3 +23,19 @@ export type WebNavigationDetailData = {
   url: string;
   websiteData: string;
 };
+
+export type Category = {
+  id: number;
+  name: string;
+  link: string;
+  count: number;
+};
+export interface DataItem {
+  create_by: number;
+  create_time: string;
+  del_flag: number;
+  id: number;
+  name: string;
+  sort: number;
+  title: string;
+}

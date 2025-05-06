@@ -33,6 +33,24 @@ export default function WebNavCard({ name, thumbnail_url, title, url, content }:
         </a>
       </div>
       <p className='line-clamp-3 px-[6px] text-xs text-white/70 lg:line-clamp-5 lg:text-sm'>{content}</p>
+      <div className='mt-auto flex h-9 w-fit items-center justify-center gap-1 rounded-full bg-[#1E1E25] px-3.5 text-sm text-white/70'>
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          width='24'
+          height='24'
+          viewBox='0 0 24 24'
+          fill='none'
+          stroke='currentColor'
+          strokeWidth='2'
+          strokeLinecap='round'
+          strokeLinejoin='round'
+          className='lucide lucide-line-chart size-4'
+        >
+          <path d='M3 3v18h18' />
+          <path d='m19 9-5 5-4-4-3 3' />
+        </svg>
+        <div>86.4 K</div>
+      </div>
     </div>
   );
 }

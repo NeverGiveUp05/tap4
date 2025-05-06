@@ -7,6 +7,8 @@ import { useTranslations } from 'next-intl';
 
 import { NAV_LINKS } from '@/lib/constants';
 import { cn } from '@/lib/utils';
+import Button from '@/components/home/Button';
+import SearchForm from '@/components/home/SearchForm';
 
 import BaseImage from '../image/BaseImage';
 import LocaleSwitcher from '../LocaleSwitcher';
@@ -26,7 +28,7 @@ export default function Navigation() {
 
   return (
     <>
-      <header className='bg-frosted-glass sticky left-0 top-0 z-50 flex h-[64px] bg-[#252A464A] px-5 blur-[60%] filter lg:px-0'>
+      <header className='bg-frosted-glass sticky left-0 top-0 z-50 flex h-[64px] bg-[#15141A] px-5 blur-[60%] filter lg:px-0'>
         <nav className='mx-auto flex max-w-pc flex-1 items-center'>
           <div>
             <Link className='hover:opacity-80' href='/' title={t('title')}>
@@ -42,7 +44,12 @@ export default function Navigation() {
           </div>
           {/* pc */}
           <div className='ml-auto flex h-full items-center gap-x-[46px]'>
-            <ul className='hidden h-full flex-1 capitalize lg:flex lg:gap-x-12'>
+            <ul className='hidden h-full flex-1 capitalize lg:flex lg:gap-x-6'>
+              {pathname !== '/' && (
+                <li className='flex h-full items-center'>
+                  <SearchForm inputClassName='my-auto !w-[160px] lg:h-8' />
+                </li>
+              )}
               {NavLinks.map((item) => (
                 <Link key={item.code} href={item.href} title={item.code}>
                   <li
@@ -59,6 +66,7 @@ export default function Navigation() {
             </ul>
             <div className='flex items-center gap-x-3'>
               <LocaleSwitcher />
+              <Button>Submit AI</Button>
             </div>
           </div>
           {/* mobile */}

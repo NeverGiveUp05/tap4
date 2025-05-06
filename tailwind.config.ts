@@ -14,8 +14,9 @@ const config = {
     },
     extend: {
       colors: {
+        'tap4-gold': '#FFE600',
         'tap4-balck': '#222129',
-        'dark-bg': '#1E1B24',
+        'dark-bg': '#222129',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
