@@ -2,14 +2,15 @@
 
 import { useEffect, useState } from 'react';
 import { createClient } from '@/db/supabase/client';
+import { NavigationCategory, WebNavigation } from '@/db/supabase/types';
 
-import { DataItem } from '@/lib/data';
 import PageContent from '@/components/home/PageContent';
 import SideBar from '@/components/home/SideBar';
 
 function Main() {
   const [currentId, setCurrentId] = useState<number>(0);
-  const [data, setData] = useState<DataItem[]>([]);
+  const [data, setData] = useState<NavigationCategory[]>([]);
+  const [data2, setData2] = useState<WebNavigation[]>([]);
 
   const handleChangeId = (id: number) => {
     setCurrentId(id);
@@ -20,7 +21,22 @@ function Main() {
       const supabase = createClient();
 
       const res = await supabase.from('navigation_category').select();
-      // const res2 = await supabase.from('web_navigation').select();
+      const res2 = await supabase.from('web_navigation').select();
+      res2?.data?.reduce(
+        (acc, item) => {
+          const category = item.category_name || 'uncategorized';
+          if (!acc[category]) {
+            acc[category] = [];
+          }
+          acc[category].push(item);
+          return acc;
+        },
+        {} as Record<string, WebNavigation[]>,
+      );
+
+      if (res2.data) {
+        setData2(res2.data);
+      }
 
       if (res.data) {
         setData(res.data);
@@ -38,7 +54,7 @@ function Main() {
 
   return (
     <div className='flex gap-10'>
-      <PageContent data={data} onChangeId={handleChangeId} />
+      <PageContent data={data} data2={data2} onChangeId={handleChangeId} />
       <SideBar data={data} currentId={currentId} />
     </div>
   );

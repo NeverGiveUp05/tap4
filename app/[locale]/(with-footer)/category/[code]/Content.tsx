@@ -2,6 +2,7 @@
 import { WebNavigation } from '@/db/supabase/types';
 import { useTranslations } from 'next-intl';
 
+import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import Empty from '@/components/Empty';
 import ExploreBreadcrumb from '@/components/explore/ExploreBreadcrumb';
 import BasePagination from '@/components/page/BasePagination';
@@ -36,13 +37,40 @@ export default function Content({
                 title: t('home'),
               },
               {
+                href: '/discover',
+                title: 'All Categories',
+              },
+              {
                 title: headerTitle,
                 isLast: true,
               },
             ]}
           />
         </div>
+        <h2 className='text-balance text-center text-sm'>{t('subTitle')}</h2>
       </div>
+      <Select defaultValue='best'>
+        <SelectTrigger className='flex h-10 w-[125px] items-center justify-between rounded-lg border border-white/40 bg-transparent px-3 py-2 text-sm text-white/40 ring-offset-background placeholder:text-muted-foreground focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 lg:w-[220px] [&>span]:line-clamp-1'>
+          <SelectValue placeholder='Recent' />
+        </SelectTrigger>
+        <SelectContent className='rounded-lg border border-white/40 bg-dark-bg p-1 text-white/40 shadow-md'>
+          <SelectGroup>
+            <SelectItem
+              value='best'
+              className='relative flex w-full cursor-default select-none items-center rounded-sm !bg-transparent py-1.5 pl-8 pr-2 text-sm outline-none hover:cursor-pointer hover:text-white focus:bg-white/10 focus:text-white'
+            >
+              Best
+            </SelectItem>
+            <SelectItem
+              value='recent'
+              className='relative flex w-full cursor-default select-none items-center rounded-sm !bg-transparent py-1.5 pl-8 pr-2 text-sm outline-none hover:cursor-pointer hover:text-white focus:bg-white/10 focus:text-white'
+            >
+              Recent
+            </SelectItem>
+          </SelectGroup>
+        </SelectContent>
+      </Select>
+
       <div className='mt-3'>
         {navigationList && !!navigationList?.length ? (
           <>

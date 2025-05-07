@@ -1,11 +1,10 @@
 'use client';
 
 import Link from 'next/link';
-
-import { DataItem } from '@/lib/data';
+import { NavigationCategory } from '@/db/supabase/types';
 
 interface SideBarProps {
-  data: DataItem[];
+  data: NavigationCategory[];
   currentId: number;
 }
 

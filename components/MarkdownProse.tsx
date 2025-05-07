@@ -77,7 +77,7 @@ export default function MarkdownProse({
       {content.faq.length > 0 && (
         <div>
           <div>
-            <div className='flex min-h-10 w-fit items-center justify-center gap-2 rounded-2xl rounded-bl-none border-2 border-[#2C2D36] px-5 py-1 hover:border-tap4-gold'>
+            <div className='flex min-h-10 w-fit items-center justify-center gap-2 rounded-2xl rounded-bl-none border-2 border-[#2C2D36] px-5 py-1'>
               <div className='relative h-[20px] w-[20px] text-[#FFE600]'>
                 <CircleHelp size={20} className='absolute inset-0' />
               </div>

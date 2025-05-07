@@ -50,14 +50,14 @@ export default async function Page({ params: { websiteName } }: { params: { webs
             <h1 className='text-2xl lg:text-5xl'>{data.title}</h1>
             <h2 className='text-xs lg:text-sm'>{data.content}</h2>
           </div>
-          <Link
+          {/* <Link
             href={data.url}
             target='_blank'
             rel='noreferrer'
             className='flex-center mt-5 min-h-5 w-full gap-1 rounded-[8px] bg-white p-[10px] text-sm capitalize text-black hover:opacity-80 lg:mt-auto lg:w-[288px]'
           >
             {t('visitWebsite')} <CircleArrowRight className='size-[14px]' />
-          </Link>
+          </Link> */}
         </div>
         <a
           href={data.url}
@@ -112,6 +112,15 @@ export default async function Page({ params: { websiteName } }: { params: { webs
       <div className='mb-5 px-3 lg:px-0'>
         <MarkdownProse content={dataEdit} slug={data.name} />
       </div>
+
+      <Link
+        href={data.url}
+        target='_blank'
+        rel='noreferrer'
+        className='flex-center my-5 min-h-5 w-full gap-1 rounded-[8px] bg-white p-[10px] text-sm capitalize text-black hover:opacity-80 lg:my-8 lg:w-[288px]'
+      >
+        {t('visitWebsite')} <CircleArrowRight className='size-[14px]' />
+      </Link>
     </div>
   );
 }

@@ -38,6 +38,7 @@ export default function Navigation() {
                 title={t('title')}
                 width={64}
                 height={64}
+                priority
                 className='size-[58px] lg:size-16'
               />
             </Link>

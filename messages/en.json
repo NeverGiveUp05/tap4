@@ -132,8 +132,9 @@
     "empty": "No data available"
   },
   "Category": {
-    "home": "home",
-    "empty": "No data available"
+    "home": "Home",
+    "empty": "No data available",
+    "subTitle": "Explore the best AI tools in Tap4 AI Directory"
   },
   "Submit": {
     "title": "Submit your AI Tool",
